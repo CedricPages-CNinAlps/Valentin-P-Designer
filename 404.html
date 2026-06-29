@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page non trouvée</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    :root { --color-primary:#013336; --color-secondary:#56b578; --color-light:#e0d5c4; --color-accent:#9e9a87; --color-bg-body:#faf8f5; }
+    .error-page { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; background: var(--color-primary); color: var(--color-light); }
+    .error-code { font-family: serif; font-size: 8rem; font-weight: 900; color: var(--color-secondary); line-height: 1; }
+    h1 { font-family: serif; font-size: 2rem; margin: 1rem 0 0.5rem; }
+    p  { opacity: .7; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <div class="error-code">404</div>
+    <h1>Page introuvable</h1>
+    <p>La page que vous cherchez n'existe pas ou a été déplacée.</p>
+    <a href="/" class="btn btn-primary" style="display:inline-flex;align-items:center;padding:.875rem 2rem;background:#56b578;color:#013336;border-radius:9999px;font-weight:700;text-decoration:none">Retour à l'accueil</a>
+  </div>
+</body>
+</html>
