@@ -1,0 +1,33 @@
+# Dependencies
+/vendor/
+node_modules/
+
+# Data sensible
+/data/auth.json
+
+# Uploads (tracked separately)
+/uploads/images/*
+/uploads/videos/*
+!/uploads/images/.gitkeep
+!/uploads/videos/.gitkeep
+
+# Cache & logs
+*.log
+*.cache
+/cache/
+
+# IDE
+.idea/
+.vscode/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PHP
+*.phar
+
+# Env
+.env
+.env.local

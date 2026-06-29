@@ -1,0 +1,92 @@
+{
+  "site": {
+    "name": "Valentin Porlan",
+    "tagline": "Designer Graphique & Identité Visuelle",
+    "description": "Portfolio de design graphique — création d'identités visuelles, logotypes, supports print et digital.",
+    "author": "Valentin Porlan",
+    "keywords": "design graphique, identité visuelle, logo, branding, charte graphique, print, digital",
+    "url": "",
+    "language": "fr",
+    "favicon": "",
+    "logo": "",
+    "logo_text": "VP"
+  },
+  "colors": {
+    "primary": "#013336",
+    "secondary": "#56b578",
+    "accent": "#9e9a87",
+    "light": "#e0d5c4",
+    "text_dark": "#013336",
+    "text_light": "#e0d5c4",
+    "bg_body": "#faf8f5"
+  },
+  "fonts": {
+    "heading": "Playfair Display",
+    "body": "Inter",
+    "heading_weight": "700",
+    "body_weight": "400"
+  },
+  "nav": {
+    "items": [
+      {"label": "À propos", "href": "#about"},
+      {"label": "Services", "href": "#services"},
+      {"label": "Portfolio", "href": "#portfolio"},
+      {"label": "Contact", "href": "#contact"}
+    ]
+  },
+  "social": {
+    "instagram": "",
+    "behance": "",
+    "linkedin": "",
+    "dribbble": "",
+    "twitter": ""
+  },
+  "emailjs": {
+    "service_id": "",
+    "template_id": "",
+    "public_key": ""
+  },
+  "tracking": {
+    "gtm_id": "",
+    "gtag_id": "",
+    "analytics_ua": "",
+    "analytics_ua_old": "",
+    "matomo_tm_url": "",
+    "matomo_id": "",
+    "tiktok_id": "",
+    "googlemaps_key": "",
+    "facebook_pixel": "",
+    "custom_head": "",
+    "custom_body": ""
+  },
+  "cookies": {
+    "tac_enabled": false,
+    "tac_position": "bottom",
+    "tac_color": "#013336",
+    "services": {
+      "googlefonts": true,
+      "googletagmanager": false,
+      "gtag": false,
+      "gajs": false,
+      "analytics": false,
+      "googlemaps": false,
+      "matomotm": false,
+      "matomo": false,
+      "facebook": false,
+      "facebookpost": false,
+      "tiktok": false,
+      "tiktokvideo": false,
+      "twitter": false,
+      "twitterembed": false
+    }
+  },
+  "seo": {
+    "og_image": "",
+    "og_type": "website",
+    "twitter_card": "summary_large_image",
+    "twitter_site": "",
+    "robots": "index, follow",
+    "schema_type": "Person",
+    "canonical": ""
+  }
+}

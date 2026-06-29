@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "eyebrow": "Designer Graphique",
+    "title": "Je donne vie à vos idées",
+    "subtitle": "Création d'identités visuelles uniques, de logotypes mémorables et de supports graphiques qui racontent votre histoire.",
+    "cta_primary_text": "Voir mes projets",
+    "cta_primary_link": "#portfolio",
+    "cta_secondary_text": "Me contacter",
+    "cta_secondary_link": "#contact",
+    "bg_color": "#013336",
+    "image": "",
+    "show_link_button": false,
+    "link_button_text": "En savoir plus",
+    "link_button_url": ""
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "Passionné par le design depuis toujours",
+    "text": "Designer graphique indépendant avec plus de 5 ans d'expérience, je spécialise dans la création d'identités visuelles fortes et cohérentes. Mon approche mêle esthétique contemporaine et stratégie de marque pour des résultats qui marquent les esprits.",
+    "skills": ["Identité visuelle", "Logotype", "Print", "UI/UX", "Motion Design", "Typographie"],
+    "image": "",
+    "bg_color": "#faf8f5",
+    "show_link_button": false,
+    "link_button_text": "Télécharger mon CV",
+    "link_button_url": ""
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "Ce que je crée pour vous",
+    "subtitle": "Des solutions graphiques sur-mesure adaptées à vos besoins et à votre identité.",
+    "bg_color": "#013336",
+    "show_link_button": false,
+    "link_button_text": "Tous les services",
+    "link_button_url": "",
+    "items": [
+      {
+        "icon": "🎨",
+        "title": "Identité Visuelle",
+        "text": "Création complète de chartes graphiques : logo, couleurs, typographies, guidelines.",
+        "color": "#56b578"
+      },
+      {
+        "icon": "✏️",
+        "title": "Logotype",
+        "text": "Design de logos uniques et adaptables, déclinés sur tous vos supports.",
+        "color": "#9e9a87"
+      },
+      {
+        "icon": "📐",
+        "title": "Print & Édition",
+        "text": "Mise en page de brochures, catalogues, affiches et supports imprimés.",
+        "color": "#e0d5c4"
+      },
+      {
+        "icon": "💻",
+        "title": "Digital & Web",
+        "text": "Design d'interfaces, maquettes web et assets pour le digital.",
+        "color": "#56b578"
+      },
+      {
+        "icon": "🎬",
+        "title": "Motion Design",
+        "text": "Animations et vidéos graphiques pour valoriser votre marque.",
+        "color": "#9e9a87"
+      },
+      {
+        "icon": "📦",
+        "title": "Packaging",
+        "text": "Conception de packagings attractifs et différenciants.",
+        "color": "#e0d5c4"
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Portfolio",
+    "title": "Mes derniers projets",
+    "subtitle": "Une sélection de travaux récents qui illustrent mon approche créative.",
+    "bg_color": "#faf8f5",
+    "show_link_button": false,
+    "link_button_text": "Voir tout le portfolio",
+    "link_button_url": "",
+    "items": [
+      {
+        "title": "Projet 1",
+        "category": "Identité visuelle",
+        "image": "",
+        "color": "#013336",
+        "link": ""
+      },
+      {
+        "title": "Projet 2",
+        "category": "Logotype",
+        "image": "",
+        "color": "#56b578",
+        "link": ""
+      },
+      {
+        "title": "Projet 3",
+        "category": "Print",
+        "image": "",
+        "color": "#9e9a87",
+        "link": ""
+      },
+      {
+        "title": "Projet 4",
+        "category": "Digital",
+        "image": "",
+        "color": "#e0d5c4",
+        "link": ""
+      },
+      {
+        "title": "Projet 5",
+        "category": "Motion",
+        "image": "",
+        "color": "#013336",
+        "link": ""
+      },
+      {
+        "title": "Projet 6",
+        "category": "Packaging",
+        "image": "",
+        "color": "#56b578",
+        "link": ""
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Processus",
+    "title": "Comment je travaille",
+    "subtitle": "Une méthode structurée pour des résultats cohérents et efficaces.",
+    "bg_color": "#e0d5c4",
+    "show_link_button": false,
+    "link_button_text": "Démarrer un projet",
+    "link_button_url": "#contact",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Découverte",
+        "text": "Échange approfondi sur votre projet, vos valeurs, votre cible et vos objectifs."
+      },
+      {
+        "number": "02",
+        "title": "Stratégie",
+        "text": "Définition du positionnement graphique et de la direction créative."
+      },
+      {
+        "number": "03",
+        "title": "Création",
+        "text": "Design des premières propositions visuelles avec 2 à 3 pistes créatives."
+      },
+      {
+        "number": "04",
+        "title": "Affinement",
+        "text": "Itérations et ajustements selon vos retours jusqu'à la version finale."
+      }
+    ]
+  },
+  "testimonials": {
+    "eyebrow": "Témoignages",
+    "title": "Ce que disent mes clients",
+    "bg_color": "#013336",
+    "show_link_button": false,
+    "link_button_text": "Voir plus",
+    "link_button_url": "",
+    "items": [
+      {
+        "quote": "Un travail exceptionnel, Valentin a parfaitement saisi l'essence de notre marque et l'a traduit en une identité visuelle remarquable.",
+        "author": "Marie D.",
+        "role": "Directrice Marketing",
+        "company": "Entreprise A"
+      },
+      {
+        "quote": "Créatif, réactif et professionnel. Notre logo est exactement ce que nous espérions. Je recommande vivement !",
+        "author": "Thomas L.",
+        "role": "CEO",
+        "company": "Startup B"
+      },
+      {
+        "quote": "Un vrai sens du détail et une écoute remarquable. Le résultat dépasse nos attentes.",
+        "author": "Sophie M.",
+        "role": "Fondatrice",
+        "company": "Marque C"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Démarrons un projet ensemble",
+    "subtitle": "Vous avez un projet en tête ? Discutons-en et donnons vie à vos ambitions.",
+    "email": "contact@valentinporlan.fr",
+    "phone": "",
+    "address": "",
+    "bg_color": "#faf8f5",
+    "show_link_button": false,
+    "link_button_text": "En savoir plus",
+    "link_button_url": ""
+  },
+  "footer": {
+    "text": "© 2024 Valentin Porlan — Designer Graphique. Tous droits réservés.",
+    "links": [
+      {"label": "Mentions légales", "href": "#"},
+      {"label": "Politique de confidentialité", "href": "#"}
+    ],
+    "bg_color": "#013336",
+    "show_link_button": false,
+    "link_button_text": "",
+    "link_button_url": ""
+  }
+}

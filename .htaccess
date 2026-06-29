@@ -1,0 +1,69 @@
+# Charset & encoding
+AddDefaultCharset UTF-8
+
+# Security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Protect data directory
+<FilesMatch "^data/">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+
+<DirectoryMatch "^(.*/)?data$">
+  Order Deny,Allow
+  Deny from all
+</DirectoryMatch>
+
+# Protect uploads — serve files but deny PHP execution
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phar|cgi|pl)$">
+  <If "%{REQUEST_URI} =~ m#^/uploads/#">
+    Order Deny,Allow
+    Deny from all
+  </If>
+</FilesMatch>
+
+# Block direct access to .json files
+<FilesMatch "\.json$">
+  Order Deny,Allow
+  Deny from all
+</FilesMatch>
+
+# Disable directory listing
+Options -Indexes
+
+# Allow access to main site files
+<FilesMatch "\.(php|html|css|js|jpg|jpeg|png|gif|webp|svg|avif|mp4|webm|ogg|ico|woff|woff2|ttf|eot)$">
+  Order Allow,Deny
+  Allow from all
+</FilesMatch>
+
+# PHP performance
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css              "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg            "access plus 1 year"
+  ExpiresByType image/png             "access plus 1 year"
+  ExpiresByType image/webp            "access plus 1 year"
+  ExpiresByType image/svg+xml         "access plus 1 year"
+  ExpiresByType font/woff2            "access plus 1 year"
+</IfModule>
+
+# Gzip compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
+</IfModule>
+
+# PHP settings
+<IfModule mod_php8.c>
+  php_value upload_max_filesize 50M
+  php_value post_max_size 52M
+  php_value max_execution_time 300
+</IfModule>
