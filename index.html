@@ -3,466 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <!-- SEO Primary -->
-  <title>Valentin Porlan — Designer Graphique &amp; Identité Visuelle</title>
-  <meta name="description" content="Portfolio de design graphique — création d&#039;identités visuelles, logotypes, supports print et digital.">
-  <meta name="keywords" content="design graphique, identité visuelle, logo, branding, charte graphique, print, digital">
-  <meta name="author" content="Valentin Porlan">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="/">
-
-  <!-- Open Graph -->
+  <title>Portfolio — Designer Graphique</title>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Valentin Porlan — Designer Graphique &amp; Identité Visuelle">
-  <meta property="og:description" content="Portfolio de design graphique — création d&#039;identités visuelles, logotypes, supports print et digital.">
-  <meta property="og:url" content="/">
-  <meta property="og:locale" content="fr_FR">
-  
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Valentin Porlan — Designer Graphique &amp; Identité Visuelle">
-  <meta name="twitter:description" content="Portfolio de design graphique — création d&#039;identités visuelles, logotypes, supports print et digital.">
-  
-  <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23013336'/><text y='.9em' font-size='70' x='10' fill='%2356b578'>VP</text></svg>">
-  
-  <!-- Tarte au Citron CSS -->
-  
-  <!-- Google Fonts via Tarte au Citron (if disabled, load directly) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Custom tracking codes in <head> -->
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- CSS Variables from config -->
   <style>
     :root {
-      --color-primary:    #013336;
-      --color-secondary:  #56b578;
-      --color-accent:     #9e9a87;
-      --color-light:      #e0d5c4;
-      --color-text-dark:  #013336;
-      --color-text-light: #e0d5c4;
-      --color-bg-body:    #faf8f5;
-      --font-heading:     'Playfair Display', Georgia, serif;
-      --font-body:        'Inter', system-ui, sans-serif;
+      --color-primary:#013336;--color-secondary:#56b578;--color-accent:#9e9a87;
+      --color-light:#e0d5c4;--color-text-dark:#013336;--color-text-light:#e0d5c4;
+      --color-bg-body:#faf8f5;
+      --font-heading:'Playfair Display',Georgia,serif;
+      --font-body:'Inter',system-ui,sans-serif;
     }
   </style>
-
-  <!-- Schema.org JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Valentin Porlan",
-    "jobTitle": "Designer Graphique &amp; Identité Visuelle",
-    "description": "Portfolio de design graphique — création d&#039;identités visuelles, logotypes, supports print et digital.",
-    "url": "/",
-            "email": "contact@valentinporlan.fr",
-        "sameAs": [
-          ],
-    "knowsAbout": ["Design Graphique", "Identité Visuelle", "Logotype", "Branding", "Print"]
-  }
-  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Valentin Porlan","jobTitle":"Designer Graphique & Identité Visuelle"}</script>
 </head>
 <body itemscope itemtype="https://schema.org/WebPage">
 
-<!-- =============== COOKIE MANAGER =============== -->
+<script src="assets/js/config.js"></script>
 
-<!-- =============== HEADER / NAV =============== -->
-<header class="site-header" id="top" role="banner" itemscope itemtype="https://schema.org/WPHeader">
+<header class="site-header" id="top" role="banner">
   <nav class="nav-container" role="navigation" aria-label="Navigation principale">
-    <a href="#top" class="nav-logo" aria-label="Retour en haut">
-              <span class="logo-text">VP</span>
-          </a>
-    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-menu" id="nav-menu" role="list">
-            <li><a href="#about" class="nav-link">À propos</a></li>
-            <li><a href="#services" class="nav-link">Services</a></li>
-            <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-            <li><a href="#contact" class="nav-cta">Travaillons ensemble</a></li>
-    </ul>
+    <a href="#top" class="nav-logo" id="navLogo" aria-label="Retour en haut"><span class="logo-text">VP</span></a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+    <ul class="nav-menu" id="nav-menu" role="list"></ul>
   </nav>
 </header>
 
-<!-- =============== HERO =============== -->
-<section class="hero" id="hero" aria-label="Introduction" style="background-color:#013336">
-  <div class="hero-bg-blobs" aria-hidden="true">
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-  </div>
-  <div class="hero-container">
-    <div class="hero-glass-card" data-aos="fade-up" itemscope itemtype="https://schema.org/Person">
-      <span class="hero-eyebrow" data-aos="fade-down" data-aos-delay="100">Designer Graphique</span>
-      <h1 class="hero-title" itemprop="name" data-aos="fade-up" data-aos-delay="200">
-        Je donne vie à vos idées      </h1>
-      <p class="hero-subtitle" itemprop="description" data-aos="fade-up" data-aos-delay="300">
-        Création d&#039;identités visuelles uniques, de logotypes mémorables et de supports graphiques qui racontent votre histoire.      </p>
-      <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
-                <a href="#portfolio" class="btn btn-primary">
-          Voir mes projets        </a>
-                        <a href="#contact" class="btn btn-ghost">
-          Me contacter        </a>
-                      </div>
-    </div>
-      </div>
-  <div class="hero-scroll-indicator" aria-hidden="true">
-    <div class="scroll-line"></div>
-  </div>
-</section>
+<main>
+  <section class="hero"                  id="hero"          aria-label="Introduction"></section>
+  <section class="section section-about" id="about"         aria-labelledby="about-title"></section>
+  <section class="section section-services" id="services"   aria-labelledby="services-title"></section>
+  <section class="section section-portfolio" id="portfolio" aria-labelledby="portfolio-title"></section>
+  <section class="section section-process" id="process"     aria-labelledby="process-title"></section>
+  <section class="section section-testimonials" id="testimonials" aria-labelledby="testimonials-title"></section>
+  <section class="section section-contact" id="contact"     aria-labelledby="contact-title"></section>
+</main>
 
-<!-- =============== ABOUT =============== -->
-<section class="section section-about" id="about" aria-labelledby="about-title" style="background-color:#faf8f5">
-  <div class="container">
-    <div class="section-inner about-grid">
-            <div class="about-content" data-aos="fade-left">
-        <span class="section-eyebrow">À propos</span>
-        <h2 id="about-title" class="section-title">Passionné par le design depuis toujours</h2>
-        <p class="section-text">Designer graphique indépendant avec plus de 5 ans d&#039;expérience, je spécialise dans la création d&#039;identités visuelles fortes et cohérentes. Mon approche mêle esthétique contemporaine et stratégie de marque pour des résultats qui marquent les esprits.</p>
-                <ul class="skills-list" role="list">
-                    <li class="skill-tag">Identité visuelle</li>
-                    <li class="skill-tag">Logotype</li>
-                    <li class="skill-tag">Print</li>
-                    <li class="skill-tag">UI/UX</li>
-                    <li class="skill-tag">Motion Design</li>
-                    <li class="skill-tag">Typographie</li>
-                  </ul>
-                      </div>
-    </div>
-  </div>
-</section>
+<footer class="site-footer" id="site-footer" role="contentinfo"></footer>
 
-<!-- =============== SERVICES =============== -->
-<section class="section section-services" id="services" aria-labelledby="services-title" style="background-color:#013336">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-eyebrow light">Services</span>
-      <h2 id="services-title" class="section-title light">Ce que je crée pour vous</h2>
-            <p class="section-subtitle light">Des solutions graphiques sur-mesure adaptées à vos besoins et à votre identité.</p>
-          </div>
-    <div class="services-grid">
-            <article class="service-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="service-icon" style="background-color:#56b57820; color:#56b578">🎨</div>
-        <h3 class="service-title">Identité Visuelle</h3>
-        <p class="service-text">Création complète de chartes graphiques : logo, couleurs, typographies, guidelines.</p>
-        <div class="service-accent" style="background-color:#56b578"></div>
-      </article>
-            <article class="service-card" data-aos="fade-up" data-aos-delay="80">
-        <div class="service-icon" style="background-color:#9e9a8720; color:#9e9a87">✏️</div>
-        <h3 class="service-title">Logotype</h3>
-        <p class="service-text">Design de logos uniques et adaptables, déclinés sur tous vos supports.</p>
-        <div class="service-accent" style="background-color:#9e9a87"></div>
-      </article>
-            <article class="service-card" data-aos="fade-up" data-aos-delay="160">
-        <div class="service-icon" style="background-color:#e0d5c420; color:#e0d5c4">📐</div>
-        <h3 class="service-title">Print &amp; Édition</h3>
-        <p class="service-text">Mise en page de brochures, catalogues, affiches et supports imprimés.</p>
-        <div class="service-accent" style="background-color:#e0d5c4"></div>
-      </article>
-            <article class="service-card" data-aos="fade-up" data-aos-delay="240">
-        <div class="service-icon" style="background-color:#56b57820; color:#56b578">💻</div>
-        <h3 class="service-title">Digital &amp; Web</h3>
-        <p class="service-text">Design d&#039;interfaces, maquettes web et assets pour le digital.</p>
-        <div class="service-accent" style="background-color:#56b578"></div>
-      </article>
-            <article class="service-card" data-aos="fade-up" data-aos-delay="320">
-        <div class="service-icon" style="background-color:#9e9a8720; color:#9e9a87">🎬</div>
-        <h3 class="service-title">Motion Design</h3>
-        <p class="service-text">Animations et vidéos graphiques pour valoriser votre marque.</p>
-        <div class="service-accent" style="background-color:#9e9a87"></div>
-      </article>
-            <article class="service-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-icon" style="background-color:#e0d5c420; color:#e0d5c4">📦</div>
-        <h3 class="service-title">Packaging</h3>
-        <p class="service-text">Conception de packagings attractifs et différenciants.</p>
-        <div class="service-accent" style="background-color:#e0d5c4"></div>
-      </article>
-          </div>
-      </div>
-</section>
-
-<!-- =============== PORTFOLIO =============== -->
-<section class="section section-portfolio" id="portfolio" aria-labelledby="portfolio-title" style="background-color:#faf8f5">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-eyebrow">Portfolio</span>
-      <h2 id="portfolio-title" class="section-title">Mes derniers projets</h2>
-            <p class="section-subtitle">Une sélection de travaux récents qui illustrent mon approche créative.</p>
-          </div>
-    <div class="portfolio-filter" role="tablist" aria-label="Filtrer par catégorie">
-      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Tous</button>
-            <button class="filter-btn" data-filter="identité visuelle" role="tab" aria-selected="false">Identité visuelle</button>
-            <button class="filter-btn" data-filter="logotype" role="tab" aria-selected="false">Logotype</button>
-            <button class="filter-btn" data-filter="print" role="tab" aria-selected="false">Print</button>
-            <button class="filter-btn" data-filter="digital" role="tab" aria-selected="false">Digital</button>
-            <button class="filter-btn" data-filter="motion" role="tab" aria-selected="false">Motion</button>
-            <button class="filter-btn" data-filter="packaging" role="tab" aria-selected="false">Packaging</button>
-          </div>
-    <div class="portfolio-grid" role="list">
-            <article class="portfolio-card" data-category="identité visuelle" data-aos="fade-up" data-aos-delay="0" role="listitem"
-               itemscope itemtype="https://schema.org/CreativeWork">
-        <div class="portfolio-img-wrap" style="background-color:#013336">
-                    <div class="portfolio-placeholder" aria-hidden="true">
-            <span class="portfolio-placeholder-letter">P</span>
-          </div>
-                    <div class="portfolio-overlay">
-            <h3 class="portfolio-title" itemprop="name">Projet 1</h3>
-            <span class="portfolio-category" itemprop="genre">Identité visuelle</span>
-                      </div>
-        </div>
-      </article>
-            <article class="portfolio-card" data-category="logotype" data-aos="fade-up" data-aos-delay="60" role="listitem"
-               itemscope itemtype="https://schema.org/CreativeWork">
-        <div class="portfolio-img-wrap" style="background-color:#56b578">
-                    <div class="portfolio-placeholder" aria-hidden="true">
-            <span class="portfolio-placeholder-letter">P</span>
-          </div>
-                    <div class="portfolio-overlay">
-            <h3 class="portfolio-title" itemprop="name">Projet 2</h3>
-            <span class="portfolio-category" itemprop="genre">Logotype</span>
-                      </div>
-        </div>
-      </article>
-            <article class="portfolio-card" data-category="print" data-aos="fade-up" data-aos-delay="120" role="listitem"
-               itemscope itemtype="https://schema.org/CreativeWork">
-        <div class="portfolio-img-wrap" style="background-color:#9e9a87">
-                    <div class="portfolio-placeholder" aria-hidden="true">
-            <span class="portfolio-placeholder-letter">P</span>
-          </div>
-                    <div class="portfolio-overlay">
-            <h3 class="portfolio-title" itemprop="name">Projet 3</h3>
-            <span class="portfolio-category" itemprop="genre">Print</span>
-                      </div>
-        </div>
-      </article>
-            <article class="portfolio-card" data-category="digital" data-aos="fade-up" data-aos-delay="180" role="listitem"
-               itemscope itemtype="https://schema.org/CreativeWork">
-        <div class="portfolio-img-wrap" style="background-color:#e0d5c4">
-                    <div class="portfolio-placeholder" aria-hidden="true">
-            <span class="portfolio-placeholder-letter">P</span>
-          </div>
-                    <div class="portfolio-overlay">
-            <h3 class="portfolio-title" itemprop="name">Projet 4</h3>
-            <span class="portfolio-category" itemprop="genre">Digital</span>
-                      </div>
-        </div>
-      </article>
-            <article class="portfolio-card" data-category="motion" data-aos="fade-up" data-aos-delay="240" role="listitem"
-               itemscope itemtype="https://schema.org/CreativeWork">
-        <div class="portfolio-img-wrap" style="background-color:#013336">
-                    <div class="portfolio-placeholder" aria-hidden="true">
-            <span class="portfolio-placeholder-letter">P</span>
-          </div>
-                    <div class="portfolio-overlay">
-            <h3 class="portfolio-title" itemprop="name">Projet 5</h3>
-            <span class="portfolio-category" itemprop="genre">Motion</span>
-                      </div>
-        </div>
-      </article>
-            <article class="portfolio-card" data-category="packaging" data-aos="fade-up" data-aos-delay="300" role="listitem"
-               itemscope itemtype="https://schema.org/CreativeWork">
-        <div class="portfolio-img-wrap" style="background-color:#56b578">
-                    <div class="portfolio-placeholder" aria-hidden="true">
-            <span class="portfolio-placeholder-letter">P</span>
-          </div>
-                    <div class="portfolio-overlay">
-            <h3 class="portfolio-title" itemprop="name">Projet 6</h3>
-            <span class="portfolio-category" itemprop="genre">Packaging</span>
-                      </div>
-        </div>
-      </article>
-          </div>
-      </div>
-</section>
-
-<!-- =============== PROCESS =============== -->
-<section class="section section-process" id="process" aria-labelledby="process-title" style="background-color:#e0d5c4">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-eyebrow">Processus</span>
-      <h2 id="process-title" class="section-title">Comment je travaille</h2>
-            <p class="section-subtitle">Une méthode structurée pour des résultats cohérents et efficaces.</p>
-          </div>
-    <div class="process-steps">
-            <div class="process-step" data-aos="fade-up" data-aos-delay="0">
-        <div class="step-number" aria-hidden="true">01</div>
-        <div class="step-content">
-          <h3 class="step-title">Découverte</h3>
-          <p class="step-text">Échange approfondi sur votre projet, vos valeurs, votre cible et vos objectifs.</p>
-        </div>
-                <div class="step-connector" aria-hidden="true"></div>
-              </div>
-            <div class="process-step" data-aos="fade-up" data-aos-delay="100">
-        <div class="step-number" aria-hidden="true">02</div>
-        <div class="step-content">
-          <h3 class="step-title">Stratégie</h3>
-          <p class="step-text">Définition du positionnement graphique et de la direction créative.</p>
-        </div>
-                <div class="step-connector" aria-hidden="true"></div>
-              </div>
-            <div class="process-step" data-aos="fade-up" data-aos-delay="200">
-        <div class="step-number" aria-hidden="true">03</div>
-        <div class="step-content">
-          <h3 class="step-title">Création</h3>
-          <p class="step-text">Design des premières propositions visuelles avec 2 à 3 pistes créatives.</p>
-        </div>
-                <div class="step-connector" aria-hidden="true"></div>
-              </div>
-            <div class="process-step" data-aos="fade-up" data-aos-delay="300">
-        <div class="step-number" aria-hidden="true">04</div>
-        <div class="step-content">
-          <h3 class="step-title">Affinement</h3>
-          <p class="step-text">Itérations et ajustements selon vos retours jusqu&#039;à la version finale.</p>
-        </div>
-              </div>
-          </div>
-      </div>
-</section>
-
-<!-- =============== TESTIMONIALS =============== -->
-<section class="section section-testimonials" id="testimonials" aria-labelledby="testimonials-title" style="background-color:#013336">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-eyebrow light">Témoignages</span>
-      <h2 id="testimonials-title" class="section-title light">Ce que disent mes clients</h2>
-    </div>
-    <div class="testimonials-grid">
-            <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="0"
-                  itemscope itemtype="https://schema.org/Review">
-        <div class="quote-icon" aria-hidden="true">"</div>
-        <p class="testimonial-quote" itemprop="reviewBody">Un travail exceptionnel, Valentin a parfaitement saisi l&#039;essence de notre marque et l&#039;a traduit en une identité visuelle remarquable.</p>
-        <footer class="testimonial-author" itemscope itemtype="https://schema.org/Person">
-          <strong itemprop="name">Marie D.</strong>
-          <span itemprop="jobTitle">Directrice Marketing</span>
-                    — <span itemprop="worksFor">Entreprise A</span>
-                  </footer>
-      </blockquote>
-            <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="100"
-                  itemscope itemtype="https://schema.org/Review">
-        <div class="quote-icon" aria-hidden="true">"</div>
-        <p class="testimonial-quote" itemprop="reviewBody">Créatif, réactif et professionnel. Notre logo est exactement ce que nous espérions. Je recommande vivement !</p>
-        <footer class="testimonial-author" itemscope itemtype="https://schema.org/Person">
-          <strong itemprop="name">Thomas L.</strong>
-          <span itemprop="jobTitle">CEO</span>
-                    — <span itemprop="worksFor">Startup B</span>
-                  </footer>
-      </blockquote>
-            <blockquote class="testimonial-card" data-aos="fade-up" data-aos-delay="200"
-                  itemscope itemtype="https://schema.org/Review">
-        <div class="quote-icon" aria-hidden="true">"</div>
-        <p class="testimonial-quote" itemprop="reviewBody">Un vrai sens du détail et une écoute remarquable. Le résultat dépasse nos attentes.</p>
-        <footer class="testimonial-author" itemscope itemtype="https://schema.org/Person">
-          <strong itemprop="name">Sophie M.</strong>
-          <span itemprop="jobTitle">Fondatrice</span>
-                    — <span itemprop="worksFor">Marque C</span>
-                  </footer>
-      </blockquote>
-          </div>
-  </div>
-</section>
-
-<!-- =============== CONTACT =============== -->
-<section class="section section-contact" id="contact" aria-labelledby="contact-title" style="background-color:#faf8f5">
-  <div class="container">
-    <div class="contact-wrapper">
-      <div class="contact-info" data-aos="fade-right">
-        <span class="section-eyebrow">Contact</span>
-        <h2 id="contact-title" class="section-title">Démarrons un projet ensemble</h2>
-        <p class="section-text">Vous avez un projet en tête ? Discutons-en et donnons vie à vos ambitions.</p>
-        <div class="contact-details">
-                    <a href="mailto:contact@valentinporlan.fr" class="contact-link" itemprop="email">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            contact@valentinporlan.fr          </a>
-                            </div>
-        <div class="social-links" aria-label="Réseaux sociaux">
-                  </div>
-      </div>
-
-      <div class="contact-form-wrap" data-aos="fade-left">
-        <form class="contact-form" id="contact-form" novalidate aria-label="Formulaire de contact"
-              itemscope itemtype="https://schema.org/ContactPage">
-          <div class="form-group">
-            <label for="contact-name" class="form-label">Nom complet <span aria-hidden="true">*</span></label>
-            <input type="text" id="contact-name" name="from_name" class="form-input" required
-                   autocomplete="name" aria-required="true" placeholder="Votre nom">
-          </div>
-          <div class="form-group">
-            <label for="contact-email" class="form-label">Email <span aria-hidden="true">*</span></label>
-            <input type="email" id="contact-email" name="from_email" class="form-input" required
-                   autocomplete="email" aria-required="true" placeholder="votre@email.com">
-          </div>
-          <div class="form-group">
-            <label for="contact-subject" class="form-label">Sujet</label>
-            <input type="text" id="contact-subject" name="subject" class="form-input"
-                   placeholder="Votre projet">
-          </div>
-          <div class="form-group">
-            <label for="contact-message" class="form-label">Message <span aria-hidden="true">*</span></label>
-            <textarea id="contact-message" name="message" class="form-input form-textarea" required
-                      aria-required="true" placeholder="Décrivez votre projet..." rows="5"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full" id="contact-submit">
-            <span class="btn-text">Envoyer le message</span>
-            <span class="btn-loading" aria-hidden="true" hidden>Envoi en cours...</span>
-          </button>
-          <div class="form-message" id="form-message" role="alert" aria-live="polite"></div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =============== FOOTER =============== -->
-<footer class="site-footer" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter" style="background-color:#013336">
-  <div class="footer-container">
-    <div class="footer-brand">
-      <a href="#top" class="footer-logo" aria-label="Retour en haut">
-        <span class="logo-text">VP</span>
-      </a>
-      <p class="footer-tagline">Designer Graphique &amp; Identité Visuelle</p>
-    </div>
-    <div class="footer-social" aria-label="Réseaux sociaux">
-          </div>
-    <div class="footer-bottom">
-      <p>© 2024 Valentin Porlan — Designer Graphique. Tous droits réservés.</p>
-      <nav aria-label="Liens légaux">
-                <a href="#" class="footer-legal-link">Mentions légales</a>
-                <a href="#" class="footer-legal-link">Politique de confidentialité</a>
-                      </nav>
-    </div>
-  </div>
-</footer>
-
-<!-- Back to top -->
-<button class="back-to-top" id="backToTop" aria-label="Retour en haut de page" title="Retour en haut">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-    <polyline points="18 15 12 9 6 15"/>
-  </svg>
+<button class="back-to-top" id="backToTop" aria-label="Retour en haut de page">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
 
-<!-- EmailJS -->
-
-<!-- Main script -->
-<script>
-  window.EMAILJS_CONFIG = {
-    service_id:  "",
-    template_id: "",
-    public_key:  ""
-  };
-</script>
 <script src="assets/js/main.js" defer></script>
-
-<!-- Custom body tracking -->
-
 </body>
 </html>
