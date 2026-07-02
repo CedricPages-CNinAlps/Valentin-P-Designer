@@ -647,6 +647,132 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; }
 .portfolio-link:hover { background: var(--color-secondary); color: var(--color-primary); }
 .portfolio-link svg { width: 1rem; height: 1rem; }
 
+.portfolio-card[tabindex="0"] { cursor: pointer; }
+.portfolio-card[tabindex="0"]:focus-visible { outline: 2px solid var(--color-secondary); outline-offset: 4px; }
+
+.portfolio-count {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.6rem;
+  background: rgba(1,51,54,.55);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-full);
+  color: var(--color-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.portfolio-count svg { width: 0.85rem; height: 0.85rem; }
+
+/* ====================================
+   PORTFOLIO LIGHTBOX
+==================================== */
+.pf-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  background: rgba(1,20,22,.96);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition);
+  padding: 1.5rem;
+}
+.pf-lightbox.open { opacity: 1; visibility: visible; }
+body.pf-lightbox-open { overflow: hidden; }
+
+.pf-lightbox-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 3.5rem 4rem;
+}
+
+.pf-lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto; height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+.pf-lightbox-img.loaded { opacity: 1; transform: scale(1); }
+
+.pf-lightbox-close,
+.pf-lightbox-nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem; height: 2.75rem;
+  background: rgba(255,255,255,.1);
+  border-radius: var(--radius-full);
+  color: var(--color-light);
+  transition: var(--transition);
+  z-index: 2;
+}
+.pf-lightbox-close:hover,
+.pf-lightbox-nav:hover { background: var(--color-secondary); color: var(--color-primary); }
+.pf-lightbox-close svg,
+.pf-lightbox-nav svg { width: 1.25rem; height: 1.25rem; }
+
+.pf-lightbox-close { top: 1.5rem; right: 1.5rem; }
+.pf-lightbox-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
+.pf-lightbox-next { right: 1rem; top: 50%; transform: translateY(-50%); }
+
+.pf-lightbox-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0.5rem 0 1rem;
+  color: var(--color-light);
+}
+.pf-lightbox-title { font-size: 1.1rem; margin-bottom: 0.15rem; }
+.pf-lightbox-category { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-secondary); }
+.pf-lightbox-counter { font-size: 0.8rem; color: var(--color-accent); white-space: nowrap; }
+
+.pf-lightbox-thumbs {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+.pf-lightbox-thumb {
+  flex: 0 0 auto;
+  width: 4.5rem; height: 3.4rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  opacity: 0.5;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+.pf-lightbox-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.pf-lightbox-thumb:hover { opacity: 0.85; }
+.pf-lightbox-thumb.active { opacity: 1; border-color: var(--color-secondary); }
+
+@media (max-width: 640px) {
+  .pf-lightbox { padding: 1rem; }
+  .pf-lightbox-stage { padding: 3rem 0.5rem; }
+  .pf-lightbox-info { flex-direction: column; align-items: flex-start; gap: 0.25rem; }
+  .pf-lightbox-prev { left: 0.25rem; }
+  .pf-lightbox-next { right: 0.25rem; }
+}
+
 /* ====================================
    PROCESS
 ==================================== */

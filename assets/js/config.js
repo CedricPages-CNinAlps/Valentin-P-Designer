@@ -20,7 +20,7 @@ const VP_DEFAULTS = {
     hero: { eyebrow:"Designer Graphique", title:"Je donne vie à vos idées", subtitle:"Création d'identités visuelles uniques, de logotypes mémorables et de supports graphiques qui racontent votre histoire.", cta_primary_text:"Voir mes projets", cta_primary_link:"#portfolio", cta_secondary_text:"Me contacter", cta_secondary_link:"#contact", bg_color:"#013336", image:"", show_link_button:false, link_button_text:"En savoir plus", link_button_url:"" },
     about: { eyebrow:"À propos", title:"Passionné par le design depuis toujours", text:"Designer graphique indépendant avec plus de 5 ans d'expérience, je spécialise dans la création d'identités visuelles fortes et cohérentes. Mon approche mêle esthétique contemporaine et stratégie de marque pour des résultats qui marquent les esprits.", skills:["Identité visuelle","Logotype","Print","UI/UX","Motion Design","Typographie"], image:"", bg_color:"#faf8f5", show_link_button:false, link_button_text:"Télécharger mon CV", link_button_url:"" },
     services: { eyebrow:"Services", title:"Ce que je crée pour vous", subtitle:"Des solutions graphiques sur-mesure adaptées à vos besoins et à votre identité.", bg_color:"#013336", show_link_button:false, link_button_text:"", link_button_url:"", items:[ {icon:"🎨",title:"Identité Visuelle",text:"Création complète de chartes graphiques : logo, couleurs, typographies, guidelines.",color:"#56b578"},{icon:"✏️",title:"Logotype",text:"Design de logos uniques et adaptables, déclinés sur tous vos supports.",color:"#9e9a87"},{icon:"📐",title:"Print & Édition",text:"Mise en page de brochures, catalogues, affiches et supports imprimés.",color:"#e0d5c4"},{icon:"💻",title:"Digital & Web",text:"Design d'interfaces, maquettes web et assets pour le digital.",color:"#56b578"},{icon:"🎬",title:"Motion Design",text:"Animations et vidéos graphiques pour valoriser votre marque.",color:"#9e9a87"},{icon:"📦",title:"Packaging",text:"Conception de packagings attractifs et différenciants.",color:"#e0d5c4"} ] },
-    portfolio: { eyebrow:"Portfolio", title:"Mes derniers projets", subtitle:"Une sélection de travaux récents qui illustrent mon approche créative.", bg_color:"#faf8f5", show_link_button:false, link_button_text:"", link_button_url:"", items:[ {title:"Projet 1",category:"Identité visuelle",image:"",color:"#013336",link:""},{title:"Projet 2",category:"Logotype",image:"",color:"#56b578",link:""},{title:"Projet 3",category:"Print",image:"",color:"#9e9a87",link:""},{title:"Projet 4",category:"Digital",image:"",color:"#e0d5c4",link:""},{title:"Projet 5",category:"Motion",image:"",color:"#013336",link:""},{title:"Projet 6",category:"Packaging",image:"",color:"#56b578",link:""} ] },
+    portfolio: { eyebrow:"Portfolio", title:"Mes derniers projets", subtitle:"Une sélection de travaux récents qui illustrent mon approche créative.", bg_color:"#faf8f5", show_link_button:false, link_button_text:"", link_button_url:"", items:[ {title:"Projet 1",category:"Identité visuelle",images:[],color:"#013336",link:""},{title:"Projet 2",category:"Logotype",images:[],color:"#56b578",link:""},{title:"Projet 3",category:"Print",images:[],color:"#9e9a87",link:""},{title:"Projet 4",category:"Digital",images:[],color:"#e0d5c4",link:""},{title:"Projet 5",category:"Motion",images:[],color:"#013336",link:""},{title:"Projet 6",category:"Packaging",images:[],color:"#56b578",link:""} ] },
     process: { eyebrow:"Processus", title:"Comment je travaille", subtitle:"Une méthode structurée pour des résultats cohérents et efficaces.", bg_color:"#e0d5c4", show_link_button:false, link_button_text:"Démarrer un projet", link_button_url:"#contact", steps:[ {number:"01",title:"Découverte",text:"Échange approfondi sur votre projet, vos valeurs, votre cible et vos objectifs."},{number:"02",title:"Stratégie",text:"Définition du positionnement graphique et de la direction créative."},{number:"03",title:"Création",text:"Design des premières propositions visuelles avec 2 à 3 pistes créatives."},{number:"04",title:"Affinement",text:"Itérations et ajustements selon vos retours jusqu'à la version finale."} ] },
     testimonials: { eyebrow:"Témoignages", title:"Ce que disent mes clients", bg_color:"#013336", show_link_button:false, link_button_text:"", link_button_url:"", items:[ {quote:"Un travail exceptionnel, Valentin a parfaitement saisi l'essence de notre marque.",author:"Marie D.",role:"Directrice Marketing",company:"Entreprise A"},{quote:"Créatif, réactif et professionnel. Notre logo est exactement ce que nous espérions.",author:"Thomas L.",role:"CEO",company:"Startup B"},{quote:"Un vrai sens du détail et une écoute remarquable. Le résultat dépasse nos attentes.",author:"Sophie M.",role:"Fondatrice",company:"Marque C"} ] },
     contact: { eyebrow:"Contact", title:"Démarrons un projet ensemble", subtitle:"Vous avez un projet en tête ? Discutons-en et donnons vie à vos ambitions.", email:"contact@valentinporlan.fr", phone:"", bg_color:"#faf8f5", show_link_button:false, link_button_text:"", link_button_url:"" },
@@ -47,6 +47,14 @@ function el(tag, cls, html) { const e=document.createElement(tag); if(cls)e.clas
 /* ---- Load config ---- */
 const CFG = mergeDeep(VP_DEFAULTS.config,  ls('vp_config')  || {});
 const CNT = mergeDeep(VP_DEFAULTS.content, ls('vp_content') || {});
+
+/* ---- Migrate legacy single "image" field to "images" (max 6) ---- */
+const MAX_PF_IMAGES = 6;
+CNT.portfolio.items = (CNT.portfolio.items || []).map(item => {
+  let images = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
+  if (!images.length && item.image) images = [item.image];
+  return { ...item, images: images.slice(0, MAX_PF_IMAGES) };
+});
 
 /* ============================================================
    THEME — CSS variables + Google Fonts
@@ -214,20 +222,28 @@ function socialLinks(cls='social-link') {
       ${cats.map(c=>`<button class="filter-btn" data-filter="${esc(c.toLowerCase())}" role="tab" aria-selected="false">${esc(c)}</button>`).join('')}
     </div>
     <div class="portfolio-grid" role="list">
-      ${pf.items.map((item,i) => `
-        <article class="portfolio-card" data-category="${esc(item.category.toLowerCase())}" data-aos="fade-up" data-aos-delay="${i*60}" role="listitem">
+      ${pf.items.map((item,i) => {
+        const images = item.images || [];
+        const cover  = images[0];
+        return `
+        <article class="portfolio-card" data-category="${esc(item.category.toLowerCase())}" data-index="${i}" data-aos="fade-up" data-aos-delay="${i*60}" role="listitem" ${images.length ? `tabindex="0" aria-label="Voir les images du projet ${esc(item.title)}"` : ''}>
           <div class="portfolio-img-wrap" style="background:${esc(item.color)}">
-            ${item.image ? `<img src="${esc(item.image)}" alt="${esc(item.title)}" class="portfolio-img" loading="lazy">` : `<div class="portfolio-placeholder" aria-hidden="true"><span class="portfolio-placeholder-letter">${esc(item.title.charAt(0))}</span></div>`}
+            ${cover ? `<img src="${esc(cover)}" alt="${esc(item.title)}" class="portfolio-img" loading="lazy">` : `<div class="portfolio-placeholder" aria-hidden="true"><span class="portfolio-placeholder-letter">${esc(item.title.charAt(0))}</span></div>`}
+            ${images.length > 1 ? `<span class="portfolio-count" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 21h11a2 2 0 0 0 2-2V7"/></svg>${images.length}</span>` : ''}
             <div class="portfolio-overlay">
               <h3 class="portfolio-title">${esc(item.title)}</h3>
               <span class="portfolio-category">${esc(item.category)}</span>
               ${item.link ? `<a href="${esc(item.link)}" class="portfolio-link" target="_blank" rel="noopener noreferrer" aria-label="Voir ${esc(item.title)}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>` : ''}
             </div>
           </div>
-        </article>`).join('')}
+        </article>`;
+      }).join('')}
     </div>
     ${pf.show_link_button && pf.link_button_url ? `<div class="section-cta"><a href="${esc(pf.link_button_url)}" class="btn btn-primary">${esc(pf.link_button_text)}</a></div>` : ''}
   </div>`;
+
+  /* Expose per-project galleries for the lightbox (see main.js) */
+  window.VP_PORTFOLIO_GALLERIES = pf.items.map(item => ({ title: item.title, category: item.category, images: item.images || [] }));
 })();
 
 /* ============================================================

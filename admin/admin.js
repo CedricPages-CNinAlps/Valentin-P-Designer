@@ -8,7 +8,7 @@ if (sessionStorage.getItem('vp_admin_session') !== '1') { location.href = 'index
 
 /* ---- Defaults (mirrors config.js VP_DEFAULTS) ---- */
 const DEF_CFG = { site:{name:"Valentin Porlan",tagline:"Designer Graphique & Identité Visuelle",description:"Portfolio de design graphique.",author:"Valentin Porlan",keywords:"design graphique, identité visuelle, logo",url:"",language:"fr",favicon:"",logo:"",logo_text:"VP"}, colors:{primary:"#013336",secondary:"#56b578",accent:"#9e9a87",light:"#e0d5c4",text_dark:"#013336",text_light:"#e0d5c4",bg_body:"#faf8f5"}, fonts:{heading:"Playfair Display",body:"Inter",heading_weight:"700",body_weight:"400"}, nav:{items:[{label:"À propos",href:"#about"},{label:"Services",href:"#services"},{label:"Portfolio",href:"#portfolio"},{label:"Contact",href:"#contact"}]}, social:{instagram:"",behance:"",linkedin:"",dribbble:"",twitter:""}, emailjs:{service_id:"",template_id:"",public_key:""}, tracking:{gtm_id:"",gtag_id:"",analytics_ua:"",matomo_tm_url:"",matomo_id:"",tiktok_id:"",googlemaps_key:"",custom_head:"",custom_body:""}, cookies:{tac_enabled:false,tac_position:"bottom",services:{googlefonts:true,googletagmanager:false,gtag:false,analytics:false,matomotm:false,matomo:false,facebook:false,facebookpost:false,twitter:false,twitterembed:false,tiktok:false,tiktokvideo:false}}, seo:{og_image:"",og_type:"website",twitter_card:"summary_large_image",twitter_site:"",robots:"index, follow",schema_type:"Person",canonical:""} };
-const DEF_CNT = { hero:{eyebrow:"Designer Graphique",title:"Je donne vie à vos idées",subtitle:"Création d'identités visuelles uniques.",cta_primary_text:"Voir mes projets",cta_primary_link:"#portfolio",cta_secondary_text:"Me contacter",cta_secondary_link:"#contact",bg_color:"#013336",image:"",show_link_button:false,link_button_text:"En savoir plus",link_button_url:""}, about:{eyebrow:"À propos",title:"Passionné par le design",text:"Designer graphique indépendant...",skills:["Identité visuelle","Logotype","Print","UI/UX","Motion Design","Typographie"],image:"",bg_color:"#faf8f5",show_link_button:false,link_button_text:"",link_button_url:""}, services:{eyebrow:"Services",title:"Ce que je crée",subtitle:"",bg_color:"#013336",show_link_button:false,link_button_text:"",link_button_url:"",items:[{icon:"🎨",title:"Identité Visuelle",text:"Chartes graphiques complètes.",color:"#56b578"},{icon:"✏️",title:"Logotype",text:"Logos uniques.",color:"#9e9a87"},{icon:"📐",title:"Print & Édition",text:"Supports imprimés.",color:"#e0d5c4"},{icon:"💻",title:"Digital & Web",text:"Interfaces et assets.",color:"#56b578"},{icon:"🎬",title:"Motion Design",text:"Animations et vidéos.",color:"#9e9a87"},{icon:"📦",title:"Packaging",text:"Packagings distinctifs.",color:"#e0d5c4"}]}, portfolio:{eyebrow:"Portfolio",title:"Mes derniers projets",subtitle:"",bg_color:"#faf8f5",show_link_button:false,link_button_text:"",link_button_url:"",items:[{title:"Projet 1",category:"Identité visuelle",image:"",color:"#013336",link:""},{title:"Projet 2",category:"Logotype",image:"",color:"#56b578",link:""},{title:"Projet 3",category:"Print",image:"",color:"#9e9a87",link:""},{title:"Projet 4",category:"Digital",image:"",color:"#e0d5c4",link:""},{title:"Projet 5",category:"Motion",image:"",color:"#013336",link:""},{title:"Projet 6",category:"Packaging",image:"",color:"#56b578",link:""}]}, process:{eyebrow:"Processus",title:"Comment je travaille",subtitle:"",bg_color:"#e0d5c4",show_link_button:false,link_button_text:"Démarrer",link_button_url:"#contact",steps:[{number:"01",title:"Découverte",text:"Échange sur votre projet."},{number:"02",title:"Stratégie",text:"Direction créative."},{number:"03",title:"Création",text:"Premières propositions."},{number:"04",title:"Affinement",text:"Itérations et livraison."}]}, testimonials:{eyebrow:"Témoignages",title:"Ce que disent mes clients",bg_color:"#013336",show_link_button:false,link_button_text:"",link_button_url:"",items:[{quote:"Un travail exceptionnel.",author:"Marie D.",role:"Directrice Marketing",company:"Entreprise A"},{quote:"Créatif et professionnel.",author:"Thomas L.",role:"CEO",company:"Startup B"},{quote:"Le résultat dépasse nos attentes.",author:"Sophie M.",role:"Fondatrice",company:"Marque C"}]}, contact:{eyebrow:"Contact",title:"Démarrons un projet",subtitle:"Discutons de votre projet.",email:"contact@valentinporlan.fr",phone:"",bg_color:"#faf8f5",show_link_button:false,link_button_text:"",link_button_url:""}, footer:{text:"© 2024 Valentin Porlan — Designer Graphique. Tous droits réservés.",links:[{label:"Mentions légales",href:"#"},{label:"Politique de confidentialité",href:"#"}],bg_color:"#013336"} };
+const DEF_CNT = { hero:{eyebrow:"Designer Graphique",title:"Je donne vie à vos idées",subtitle:"Création d'identités visuelles uniques.",cta_primary_text:"Voir mes projets",cta_primary_link:"#portfolio",cta_secondary_text:"Me contacter",cta_secondary_link:"#contact",bg_color:"#013336",image:"",show_link_button:false,link_button_text:"En savoir plus",link_button_url:""}, about:{eyebrow:"À propos",title:"Passionné par le design",text:"Designer graphique indépendant...",skills:["Identité visuelle","Logotype","Print","UI/UX","Motion Design","Typographie"],image:"",bg_color:"#faf8f5",show_link_button:false,link_button_text:"",link_button_url:""}, services:{eyebrow:"Services",title:"Ce que je crée",subtitle:"",bg_color:"#013336",show_link_button:false,link_button_text:"",link_button_url:"",items:[{icon:"🎨",title:"Identité Visuelle",text:"Chartes graphiques complètes.",color:"#56b578"},{icon:"✏️",title:"Logotype",text:"Logos uniques.",color:"#9e9a87"},{icon:"📐",title:"Print & Édition",text:"Supports imprimés.",color:"#e0d5c4"},{icon:"💻",title:"Digital & Web",text:"Interfaces et assets.",color:"#56b578"},{icon:"🎬",title:"Motion Design",text:"Animations et vidéos.",color:"#9e9a87"},{icon:"📦",title:"Packaging",text:"Packagings distinctifs.",color:"#e0d5c4"}]}, portfolio:{eyebrow:"Portfolio",title:"Mes derniers projets",subtitle:"",bg_color:"#faf8f5",show_link_button:false,link_button_text:"",link_button_url:"",items:[{title:"Projet 1",category:"Identité visuelle",images:[],color:"#013336",link:""},{title:"Projet 2",category:"Logotype",images:[],color:"#56b578",link:""},{title:"Projet 3",category:"Print",images:[],color:"#9e9a87",link:""},{title:"Projet 4",category:"Digital",images:[],color:"#e0d5c4",link:""},{title:"Projet 5",category:"Motion",images:[],color:"#013336",link:""},{title:"Projet 6",category:"Packaging",images:[],color:"#56b578",link:""}]}, process:{eyebrow:"Processus",title:"Comment je travaille",subtitle:"",bg_color:"#e0d5c4",show_link_button:false,link_button_text:"Démarrer",link_button_url:"#contact",steps:[{number:"01",title:"Découverte",text:"Échange sur votre projet."},{number:"02",title:"Stratégie",text:"Direction créative."},{number:"03",title:"Création",text:"Premières propositions."},{number:"04",title:"Affinement",text:"Itérations et livraison."}]}, testimonials:{eyebrow:"Témoignages",title:"Ce que disent mes clients",bg_color:"#013336",show_link_button:false,link_button_text:"",link_button_url:"",items:[{quote:"Un travail exceptionnel.",author:"Marie D.",role:"Directrice Marketing",company:"Entreprise A"},{quote:"Créatif et professionnel.",author:"Thomas L.",role:"CEO",company:"Startup B"},{quote:"Le résultat dépasse nos attentes.",author:"Sophie M.",role:"Fondatrice",company:"Marque C"}]}, contact:{eyebrow:"Contact",title:"Démarrons un projet",subtitle:"Discutons de votre projet.",email:"contact@valentinporlan.fr",phone:"",bg_color:"#faf8f5",show_link_button:false,link_button_text:"",link_button_url:""}, footer:{text:"© 2024 Valentin Porlan — Designer Graphique. Tous droits réservés.",links:[{label:"Mentions légales",href:"#"},{label:"Politique de confidentialité",href:"#"}],bg_color:"#013336"} };
 
 /* ---- Deep merge ---- */
 function mergeDeep(base, over) {
@@ -33,6 +33,16 @@ function getNested(obj, path) {
 /* ---- Load / Save state ---- */
 let CFG = mergeDeep(DEF_CFG, JSON.parse(localStorage.getItem('vp_config') || '{}'));
 let CNT = mergeDeep(DEF_CNT, JSON.parse(localStorage.getItem('vp_content') || '{}'));
+
+/* ---- Migrate legacy single "image" field to "images" (max 6) ---- */
+const MAX_PF_IMAGES = 6;
+CNT.portfolio.items = (CNT.portfolio.items || []).map(item => {
+  let images = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
+  if (!images.length && item.image) images = [item.image];
+  const { image, ...rest } = item;
+  return { ...rest, images: images.slice(0, MAX_PF_IMAGES) };
+});
+
 let DIRTY = false;
 let saveTimer;
 
@@ -150,7 +160,7 @@ function collectAll() {
 
   /* Content repeaters */
   CNT.services.items    = collectRepeater('svcList',   i=>({ icon:q(i,'.ri-icon'),title:q(i,'.ri-title'),text:q(i,'.ri-text'),color:q(i,'.ri-color') }));
-  CNT.portfolio.items   = collectRepeater('pfList',    i=>({ title:q(i,'.ri-title'),category:q(i,'.ri-cat'),image:q(i,'.ri-img'),link:q(i,'.ri-link'),color:q(i,'.ri-color') }));
+  CNT.portfolio.items   = collectRepeater('pfList',    i=>({ title:q(i,'.ri-title'),category:q(i,'.ri-cat'),images:Array.from({length:MAX_PF_IMAGES},(_,n)=>q(i,'.ri-img-'+n)).filter(Boolean),link:q(i,'.ri-link'),color:q(i,'.ri-color') }));
   CNT.process.steps     = collectRepeater('psList',    i=>({ number:q(i,'.ri-num'),title:q(i,'.ri-title'),text:q(i,'.ri-text') }));
   CNT.testimonials.items= collectRepeater('testiList', i=>({ quote:q(i,'.ri-quote'),author:q(i,'.ri-author'),role:q(i,'.ri-role'),company:q(i,'.ri-company') }));
 }
@@ -283,6 +293,13 @@ function repeaterItem(title, fields) {
   </div>`;
 }
 
+function pfImageFields(images) {
+  const arr = (images || []).slice(0, MAX_PF_IMAGES);
+  while (arr.length < MAX_PF_IMAGES) arr.push('');
+  return `<div class="pf-image-fields">${arr.map((url, i) => `
+    <input type="text" class="admin-input ri-img-${i}" placeholder="Image ${i + 1}${i === 0 ? ' (couverture)' : ''}" value="${url}">`).join('')}</div>`;
+}
+
 function buildContentSection(sec) {
   const d  = CNT[sec];
   const bg = bgLinkControls(sec);
@@ -332,7 +349,7 @@ function buildContentSection(sec) {
     <div class="admin-repeater-item"><div class="repeater-header"><span>Projet</span><button class="admin-btn-icon" aria-label="Supprimer">×</button></div><div class="admin-grid-2" style="padding:1rem">
       <div class="admin-form-group"><label class="admin-label">Titre</label><input type="text" class="admin-input ri-title" value="${item.title}"></div>
       <div class="admin-form-group"><label class="admin-label">Catégorie</label><input type="text" class="admin-input ri-cat" value="${item.category}"></div>
-      <div class="admin-form-group"><label class="admin-label">Image (URL)</label><input type="text" class="admin-input ri-img" value="${item.image}"></div>
+      <div class="admin-form-group admin-col-2"><label class="admin-label">Images du projet (jusqu'à 6 URLs — la 1ère sert de couverture)</label>${pfImageFields(item.images)}</div>
       <div class="admin-form-group"><label class="admin-label">Lien (optionnel)</label><input type="url" class="admin-input ri-link" value="${item.link}"></div>
       <div class="admin-form-group"><label class="admin-label">Couleur de fond</label><div class="color-input-wrap"><input type="color" class="color-picker" value="${item.color}"><input type="text" class="admin-input color-text-input ri-color" value="${item.color}"></div></div>
     </div></div>`).join('')}
@@ -436,6 +453,16 @@ document.addEventListener('click', e => {
   }
 });
 
+/* Repeater field edits (title/category/images/link/color/steps/quotes…) don't carry
+   data-cnt/data-cfg bindings — mark dirty on any input/change inside a repeater or
+   list item so Sauvegarder actually persists them. */
+document.addEventListener('input', e => {
+  if (e.target.closest('.admin-repeater-item, .admin-list-item')) markDirty();
+});
+document.addEventListener('change', e => {
+  if (e.target.closest('.admin-repeater-item, .admin-list-item')) markDirty();
+});
+
 /* Add repeater helpers */
 window.addSvc = () => {
   const l = document.getElementById('svcList'); if (!l) return;
@@ -446,7 +473,7 @@ window.addSvc = () => {
 window.addPf = () => {
   const l = document.getElementById('pfList'); if (!l) return;
   const d = document.createElement('div'); d.className = 'admin-repeater-item';
-  d.innerHTML = `<div class="repeater-header"><span>Projet</span><button class="admin-btn-icon" aria-label="Supprimer">×</button></div><div class="admin-grid-2" style="padding:1rem"><div class="admin-form-group"><label class="admin-label">Titre</label><input type="text" class="admin-input ri-title"></div><div class="admin-form-group"><label class="admin-label">Catégorie</label><input type="text" class="admin-input ri-cat"></div><div class="admin-form-group"><label class="admin-label">Image URL</label><input type="text" class="admin-input ri-img"></div><div class="admin-form-group"><label class="admin-label">Lien</label><input type="url" class="admin-input ri-link"></div><div class="admin-form-group"><label class="admin-label">Couleur</label><div class="color-input-wrap"><input type="color" class="color-picker" value="#013336"><input type="text" class="admin-input color-text-input ri-color" value="#013336"></div></div></div>`;
+  d.innerHTML = `<div class="repeater-header"><span>Projet</span><button class="admin-btn-icon" aria-label="Supprimer">×</button></div><div class="admin-grid-2" style="padding:1rem"><div class="admin-form-group"><label class="admin-label">Titre</label><input type="text" class="admin-input ri-title"></div><div class="admin-form-group"><label class="admin-label">Catégorie</label><input type="text" class="admin-input ri-cat"></div><div class="admin-form-group admin-col-2"><label class="admin-label">Images du projet (jusqu'à 6 URLs — la 1ère sert de couverture)</label>${pfImageFields([])}</div><div class="admin-form-group"><label class="admin-label">Lien</label><input type="url" class="admin-input ri-link"></div><div class="admin-form-group"><label class="admin-label">Couleur</label><div class="color-input-wrap"><input type="color" class="color-picker" value="#013336"><input type="text" class="admin-input color-text-input ri-color" value="#013336"></div></div></div>`;
   l.appendChild(d); setupColorPickers(d); markDirty();
 };
 window.addPs = () => {
