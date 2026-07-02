@@ -1,6 +1,12 @@
 # Charset & encoding
 AddDefaultCharset UTF-8
 
+# Pretty short links for media: /m/AB12C -> m.php?id=AB12C
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^m/([A-Za-z0-9]{5})/?$ m.php?id=$1 [L,QSA]
+</IfModule>
+
 # Security headers
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"

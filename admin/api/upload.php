@@ -13,12 +13,59 @@ $type    = in_array($type, ['images', 'videos']) ? $type : 'images';
 $baseDir = dirname(dirname(__DIR__)) . '/uploads/' . $type . '/';
 $baseUrl = '../uploads/' . $type . '/';
 
+/* ---- ShortURL index (data/media.json) : [{id, type, file}] ---- */
+$mediaIndexFile = dirname(dirname(__DIR__)) . '/data/media.json';
+
+function loadMediaIndex(string $file): array {
+    if (!file_exists($file)) return [];
+    $data = json_decode(file_get_contents($file), true);
+    return is_array($data) ? $data : [];
+}
+
+function saveMediaIndex(string $file, array $index): void {
+    $fp = fopen($file, 'c');
+    if (!$fp) return;
+    flock($fp, LOCK_EX);
+    ftruncate($fp, 0);
+    fwrite($fp, json_encode(array_values($index), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    fflush($fp);
+    flock($fp, LOCK_UN);
+    fclose($fp);
+}
+
+/* 5-char alphanumeric shortcode, unique against the current index */
+function generateShortId(array $index): string {
+    $alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    $existing = array_column($index, 'id');
+    do {
+        $id = '';
+        for ($i = 0; $i < 5; $i++) {
+            $id .= $alphabet[random_int(0, strlen($alphabet) - 1)];
+        }
+    } while (in_array($id, $existing, true));
+    return $id;
+}
+
+/* Find (or lazily create, for files uploaded before this feature existed) the shortcode entry for a file */
+function findOrCreateEntry(array &$index, string $mediaIndexFile, string $type, string $filename): array {
+    foreach ($index as $item) {
+        if ($item['type'] === $type && $item['file'] === $filename) return $item;
+    }
+    $entry = ['id' => generateShortId($index), 'type' => $type, 'file' => $filename];
+    $index[] = $entry;
+    saveMediaIndex($mediaIndexFile, $index);
+    return $entry;
+}
+
 /* Delete action */
 if ($_SERVER['REQUEST_METHOD'] === 'DELETE' || ($_POST['action'] ?? '') === 'delete') {
     $filename = basename($_POST['file'] ?? '');
     $path     = $baseDir . $filename;
     if ($filename && file_exists($path) && is_file($path)) {
         unlink($path);
+        $index = loadMediaIndex($mediaIndexFile);
+        $index = array_filter($index, fn($item) => !($item['type'] === $type && $item['file'] === $filename));
+        saveMediaIndex($mediaIndexFile, $index);
         echo json_encode(['success' => true]);
     } else {
         http_response_code(404);
@@ -29,15 +76,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE' || ($_POST['action'] ?? '') === 'del
 
 /* List action */
 if (($_GET['action'] ?? '') === 'list') {
+    $index = loadMediaIndex($mediaIndexFile);
     $files = [];
     foreach (glob($baseDir . '*') as $f) {
         if (is_file($f) && basename($f) !== '.gitkeep') {
+            $entry = findOrCreateEntry($index, $mediaIndexFile, $type, basename($f));
             $files[] = [
                 'name'     => basename($f),
                 'url'      => $baseUrl . basename($f),
                 'size'     => filesize($f),
                 'modified' => filemtime($f),
                 'type'     => mime_content_type($f),
+                'id'       => $entry['id'],
+                'shortUrl' => 'm/' . $entry['id'],
             ];
         }
     }
@@ -104,12 +155,17 @@ if (!move_uploaded_file($file['tmp_name'], $dest)) {
     exit;
 }
 
+$index = loadMediaIndex($mediaIndexFile);
+$entry = findOrCreateEntry($index, $mediaIndexFile, $type, $unique);
+
 echo json_encode([
     'success' => true,
     'file'    => [
-        'name' => $unique,
-        'url'  => $baseUrl . $unique,
-        'size' => filesize($dest),
-        'type' => $mime,
+        'name'     => $unique,
+        'url'      => $baseUrl . $unique,
+        'size'     => filesize($dest),
+        'type'     => $mime,
+        'id'       => $entry['id'],
+        'shortUrl' => 'm/' . $entry['id'],
     ],
 ]);

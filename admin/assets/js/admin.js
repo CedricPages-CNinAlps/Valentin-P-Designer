@@ -444,26 +444,37 @@ function renderMediaGrid(files, grid, isModal = false) {
     const preview = isVideo
       ? `<video src="${f.url}" muted loop preload="metadata"></video>`
       : `<img src="${f.url}" alt="${f.name}" loading="lazy">`;
+    const shortLink = f.shortUrl ? `<button type="button" class="media-item-shortlink" data-short-url="${f.shortUrl}" title="Copier le lien court">🔗 /${f.shortUrl}</button>` : '';
 
     item.innerHTML = `
       ${preview}
+      ${shortLink}
       <div class="media-item-overlay">
-        ${isModal ? `<button class="media-item-btn media-item-copy" data-url="${f.url}">Utiliser</button>` : `<button class="media-item-btn media-item-copy" data-url="${f.url}" title="Copier l'URL">Copier URL</button>`}
+        ${isModal ? `<button class="media-item-btn media-item-copy" data-url="${f.url}">Utiliser</button>` : `<button class="media-item-btn media-item-copy" data-short-url="${f.shortUrl}" title="Copier le lien court">Copier le lien</button>`}
         <button class="media-item-btn media-item-delete" data-name="${f.name}" title="Supprimer">Supprimer</button>
       </div>
       <span class="media-item-name">${f.name}</span>`;
 
+    function copyShortLink(shortUrl) {
+      const fullUrl = location.origin + '/' + shortUrl;
+      navigator.clipboard?.writeText(fullUrl).then(() => {
+        setSaveStatus('saved', '✓ Lien copié : ' + fullUrl);
+        setTimeout(() => setSaveStatus('', ''), 2500);
+      });
+    }
+
+    item.querySelector('.media-item-shortlink')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      copyShortLink(e.currentTarget.dataset.shortUrl);
+    });
+
     item.querySelector('.media-item-copy').addEventListener('click', (e) => {
       e.stopPropagation();
-      const url = e.currentTarget.dataset.url;
       if (isModal) {
-        applyMediaPick(url);
+        applyMediaPick(e.currentTarget.dataset.url);
         closeModal();
       } else {
-        navigator.clipboard?.writeText(location.origin + '/' + url).then(() => {
-          setSaveStatus('saved', '✓ URL copiée');
-          setTimeout(() => setSaveStatus('', ''), 2000);
-        });
+        copyShortLink(e.currentTarget.dataset.shortUrl);
       }
     });
 
